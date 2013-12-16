@@ -2,9 +2,10 @@
 <html>
 <head>
   <title>Weeqly</title>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
+  <!--script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script-->
   <%= stylesheet_link_tag    "application", media: "all", href: "http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,300' rel='stylesheet' type='text/css" %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", src: "//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -18,10 +19,18 @@
 				class="active" 
 			<% end %>
 	  ><a href="<%= how_it_works_path %>">How It Works</a></li>
-	  <li><a class="right" href="#">Login</a></li>
+	  
     </ul>
-    
-    <a class="btn btn-primary btn-small pull-right" href="<%= get_started_path %>">Create an account</a>
+    <div class="pull-right">
+      <% if user_signed_in? %>
+        Hi, <%= current_user.email %>
+        <a class="btn" href="<%= user_path(current_user) %>">Your Shopping Lists</a>
+        <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <a href="<%= new_user_session_path %>">Login</a>
+        <a class="btn btn-primary btn-small" href="<%= new_user_registration_path %>">Sign up</a>
+      <% end %>
+    </div>
   </div>
 </div>
 

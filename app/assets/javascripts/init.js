@@ -18,7 +18,12 @@ Handlebars.registerHelper('everyNth', function(context, every, options) {
 
 //handlebar helper for large image
 Handlebars.registerHelper('getLargeImage', function(imageUrlsBySize) {
-  return imageUrlsBySize["90"];
+  if(imageUrlsBySize) {
+    return imageUrlsBySize["90"];
+  }else{
+    return '';
+  }
+  
 });
 
 //handlebar helper for cook time

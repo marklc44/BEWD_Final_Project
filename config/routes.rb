@@ -1,7 +1,13 @@
 Weeqly::Application.routes.draw do
+  devise_for :users
   root "main#index"
   get "how_it_works" => "main#how_it_works"
   get "get_started" => "main#get_started"
+
+  resources :recipes
+  resources :shopping_lists
+  resources :users, :only => [:show]
+  resources :recipe_on_shopping_lists, :only => [:create]
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

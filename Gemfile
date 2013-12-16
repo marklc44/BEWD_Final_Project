@@ -55,3 +55,5 @@ gem 'pg', :group => :production
 gem "less-rails" 
 gem "twitter-bootstrap-rails"
 gem 'underscore-rails'
+gem 'rest-client'
+gem 'devise'
