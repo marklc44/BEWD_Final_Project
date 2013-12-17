@@ -74,7 +74,7 @@ function getShoppingList() {
 		success: createModal,
 		dataType: 'json',
 		error: function (xhr, ajaxOptions, thrownError) {
-        	console.log(xhr.responseText);
+        	console.log('Error loading shopping lists');
    		},
 		headers: {
 			'Content-Type': 'application/json',
