@@ -65,6 +65,7 @@ function sendRecipe(obj) {
 function recipeSuccess() {
 	console.log('Recipe sent to controller');
 }
+
 //save the results obj somewhere I can use it?
 function getShoppingList() {
 	$.ajax({

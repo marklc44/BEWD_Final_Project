@@ -1,5 +1,7 @@
-<a href="<%= recipes_path %>">Find more recipes</a>
+<%= render "main/hero" %>
+
 <div class="container-fluid">
+	<a href="<%= recipes_path %>">Find more recipes <i class="icon-chevron-right"></i></a>
 	<div class="row-fluid">
 		<div id="recipe-to-shopping-list-success" class="alert alert-success hide">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -22,9 +24,9 @@
 				<h2>{{name}}</h2>
 				</div><!--end span-->
 		</div><!--end row-->
-		<div class="row-fluid">
+		<div class="row-fluid recipe-top">
 			<div class="span4">
-				<img src="{{images.0.hostedLargeUrl}}">
+				<img class="img-polaroid" src="{{images.0.hostedLargeUrl}}">
 			</div>
 			<div class="span4">
 				<div class="rating rating-{{rating}}">
@@ -38,9 +40,11 @@
 				</div--><!--end modal-->
 
 			</div>
+			<hr>
 		</div><!--end row-->
 		<div class="row-fluid">
-			<div class="span8">
+			<div class="span8 ingredients">
+			<h4>Ingredients:</h4>
 				<ul>
 					{{#each ingredientLines}}
 					<li>{{this}}</li>
@@ -73,13 +77,13 @@
   </div>
   <div class="modal-footer">
   	<p>Or create a new shopping list</p>
-
-	<input type="text" name="shopping_list_name" id="shopping-list-name" />
-	<input type="hidden" name="hidden-yummly-id" id="hidden-yummly-id" />
-	<a href="#" role="button" class="btn" id="submit-new-list">Add New List</a>
-
-    <a href="#" class="btn">Close</a>
-    <a href="#" class="btn btn-primary">Save changes</a>
+  	<form class="form-inline">
+		<input type="text" name="shopping_list_name" id="shopping-list-name" />
+		<input type="hidden" name="hidden-yummly-id" id="hidden-yummly-id" />
+		<a href="#" role="button" class="btn btn-primary" id="submit-new-list">Add New List</a>
+	</form>
+    <!--a href="#" class="btn">Close</a>
+    <a href="#" class="btn btn-primary">Save changes</a-->
 </div>
   	
 </script>

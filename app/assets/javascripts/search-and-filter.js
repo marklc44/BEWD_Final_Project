@@ -13,9 +13,16 @@ function getYummlyRecipes(params) {
 }
 
 function buildQueryParams() {
+
 	var q = $('#text-search').val();
 	var course = $('#course').val();
+	if(course == 'Filter by Course') {
+		course = '';
+	}
 	var cuisine = $('#cuisine').val();
+	if(cuisine == 'Filter by Cuisine') {
+		cuisine = '';
+	}
 
 	params = {
 		'q' : q,

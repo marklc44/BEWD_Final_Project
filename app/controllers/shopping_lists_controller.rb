@@ -2,6 +2,7 @@ class ShoppingListsController < ApplicationController
 	before_action :authenticate_user!, :only => [:new, :create]
 	
 	def index
+		
 		@user_id = current_user
 		@shopping_lists = ShoppingList.where(user_id: @user_id)
 		@shopping_list = ShoppingList.new
@@ -37,6 +38,8 @@ class ShoppingListsController < ApplicationController
 	end
 
 	def show
+		@page_title = "Shopping list"
+		@page_class = "shopping-list"
 		@shopping_list = ShoppingList.find(params[:id])
 		@recipes = @shopping_list.recipes
 	end
