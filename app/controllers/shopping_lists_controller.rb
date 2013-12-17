@@ -19,14 +19,15 @@ class ShoppingListsController < ApplicationController
 
 	def create
 		yummly_id = params[:recipe => yummly_id]
-		shopping_list = ShoppingList.where(:name => params[:name]).first_or_create
-		# shopping_list.save
+		user = current_user
+		shopping_list = ShoppingList.where(:name => params[:name], :user_id => user.id).first_or_create
+		shopping_list.save
 
-		if @shopping_list.save
-			redirect_to recipes_path
-		else
-			render :new
-		end
+		# if shopping_list.save
+		# 	redirect_to recipes_path
+		# else
+		# 	render :new
+		# end
 
 		respond_to do |format|
 			format.json do
